@@ -30,7 +30,7 @@ public class RegistrationApiTest {
     }
 
     @Test
-    public void communityPollVoteTest() {
+    public void loginTest() {
 
         RestAssured.filters(new AllureRestAssured());
 
@@ -66,6 +66,7 @@ public class RegistrationApiTest {
 
     @Test
     public void noRegisteredVote() {
+
         given()
                 .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                 .formParam("pollAnswerId", "1")
@@ -75,8 +76,9 @@ public class RegistrationApiTest {
                 .statusCode(200)
                 .body("error", is("Only registered users can vote."));
 
-
     }
+
+
 
 
 }
